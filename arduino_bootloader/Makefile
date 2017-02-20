@@ -165,7 +165,8 @@ atmega328_isp: TARGET = atmega328
 atmega328_isp: MCU_TARGET = atmega328p
 atmega328_isp: HFUSE = DA
 atmega328_isp: LFUSE = FF
-atmega328_isp: EFUSE = 05
+#atmega328_isp: EFUSE = 05
+atmega328_isp: EFUSE = F8
 atmega328_isp: isp
 
 atmega328_notp: TARGET = atmega328_notp
