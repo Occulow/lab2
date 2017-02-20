@@ -73,7 +73,7 @@ all: MCU_TARGET = atmega328p
 all: AVR_FREQ = 16000000L 
 all: $(PROGRAM).hex
 
-program:
+program: all
 	avrdude -b 57600 -F -p atmega328p -P $(PRGM_PORT) -c arduino -V -U flash:w:$(PROGRAM).hex
 #	avrdude -b 57600 -F -e -p atmega328p -P $(PRGM_PORT) -c arduino -V -U flash:w:$(PROGRAM).hex
 
