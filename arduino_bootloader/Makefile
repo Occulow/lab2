@@ -38,9 +38,11 @@ LDSECTION  = --section-start=.text=0x3800
 # unused, avrdude would get confused.
 
 ISPFUSES    = avrdude -c $(ISPTOOL) -p $(MCU_TARGET) -P $(ISPPORT) $(ISPSPEED) \
--e -u -U lock:w:0x3f:m -U efuse:w:0x$(EFUSE):m -U hfuse:w:0x$(HFUSE):m -U lfuse:w:0x$(LFUSE):m
+-e -u -U lock:w:0xff:m -U efuse:w:0x$(EFUSE):m -U hfuse:w:0x$(HFUSE):m -U lfuse:w:0x$(LFUSE):m
+#-e -u -U lock:w:0x3f:m -U efuse:w:0x$(EFUSE):m -U hfuse:w:0x$(HFUSE):m -U lfuse:w:0x$(LFUSE):m
 ISPFLASH    = avrdude -c $(ISPTOOL) -p $(MCU_TARGET) -P $(ISPPORT) $(ISPSPEED) \
--U flash:w:$(PROGRAM)_$(TARGET).hex -U lock:w:0x0f:m
+-U flash:w:$(PROGRAM)_$(TARGET).hex -U lock:w:0xcf:m
+#-U flash:w:$(PROGRAM)_$(TARGET).hex -U lock:w:0x0f:m
 
 STK500 = "C:\Program Files\Atmel\AVR Tools\STK500\Stk500.exe"
 STK500-1 = $(STK500) -e -d$(MCU_TARGET) -pf -vf -if$(PROGRAM)_$(TARGET).hex \
@@ -193,7 +195,8 @@ atmega328_pro8_isp: TARGET = atmega328_pro_8MHz
 atmega328_pro8_isp: MCU_TARGET = atmega328p
 atmega328_pro8_isp: HFUSE = DA
 atmega328_pro8_isp: LFUSE = FF
-atmega328_pro8_isp: EFUSE = 05
+#atmega328_pro8_isp: EFUSE = 05
+atmega328_pro8_isp: EFUSE = F8
 atmega328_pro8_isp: isp
 
 mega: TARGET = atmega1280
