@@ -61,3 +61,14 @@ The Debian install command should be sufficient, since avr-libc depends
 on all of the other AVR tools.
 A changelog entry mentioned that AtmelICE support was added in
 version 6.2. Testing shows it working on avrdude version 6.3.
+
+The `atmelice_isp` programmer's entry in /etc/avrdude.conf should look like the following:
+```
+programmer
+  id    = "atmelice_isp";
+  desc  = "Atmel-ICE (ARM/AVR) in ISP mode";
+  type  = "jtagice3_isp";
+  connection_type = usb;
+  usbpid = 0x2141;
+;
+```
