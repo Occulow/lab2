@@ -19,6 +19,8 @@
 # program name should not be changed...
 PROGRAM    = uart_test
 
+PRGM_PORT=/dev/ttyUSB0
+
 # enter the parameters for the avrdude isp tool
 ISPTOOL	   = stk500v2
 ISPPORT	   = usb
@@ -72,7 +74,8 @@ all: AVR_FREQ = 16000000L
 all: $(PROGRAM).hex
 
 program:
-	avrdude -b 57600 -F -p atmega328p -P /dev/ttyUSB0 -c arduino -V -U flash:w:$(PROGRAM).hex
+	avrdude -b 57600 -F -p atmega328p -P $(PRGM_PORT) -c arduino -V -U flash:w:$(PROGRAM).hex
+#	avrdude -b 57600 -F -e -p atmega328p -P $(PRGM_PORT) -c arduino -V -U flash:w:$(PROGRAM).hex
 
 atmega328_isp: atmega328
 atmega328_isp: TARGET = atmega328
