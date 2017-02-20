@@ -31,7 +31,7 @@ how you set the clock rate for the build system.
 
 Here are the specific commands for each clock rate:
 
-* 16MHz clock [default design]
+* 16MHz clock [default design] <br />
   In the `arduino_bootloader` directory run the following command:
   ```
   make atmega328_isp
@@ -41,7 +41,7 @@ Here are the specific commands for each clock rate:
   make
   make program
   ```
-* 8MHz clock
+* 8MHz clock <br />
   In the `arduino_bootloader` directory run the following command:
   ```
   make atmega328_pro8_isp
